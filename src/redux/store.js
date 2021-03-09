@@ -6,6 +6,7 @@ import filtersReducer from './filtersRedux';
 
 // define initial state and shallow-merge initial data
 const initialState = {
+  
   trips: tripList,
   countries: {},
   regions: {},
@@ -41,6 +42,14 @@ const storeReducer = (state, action) => {
   const modifiedState = globalReducer(state, action);
   return combinedReducers(modifiedState, action);
 };
+// W store.js możesz zobaczyć, że jako storeReducer używamy własnej
+// funkcji, która uruchamia globalReducer, a dopiero potem połączone
+// reducery cząstkowe.Dzięki temu mogliśmy w pliku globalRedux.js 
+// zdefiniować reducer, który obsługuje cały stan aplikacji, 
+//a nie tylko jego fragment. Potrzebujemy tego do jednoczesnego 
+// ustawienia kilku właściwości znajdujących się w stanie aplikacji.
+
+ 
 
 // create store
 const store = createStore(

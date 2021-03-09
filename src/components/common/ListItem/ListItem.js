@@ -7,7 +7,7 @@ import styles from './ListItem.scss';
 function ListItem(props) {
   return (
     <div className={styles.component}>
-      <Icon name={props.icon} /><span>{ReactHtmlParser(props.title)}</span>
+      <Icon name={props.icon} />  <span> {ReactHtmlParser(props.title)}</span>
     </div>
   );
 }

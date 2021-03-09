@@ -275,26 +275,33 @@ use the code below at: https://next.json-generator.com
           code: selected.code,
         };
       },
+
       name(tags){
         const adj = 'amazing astonishing awesome brilliant excellent fabulous fantastic incredible magnificent marvelous outstanding phenomenal remarkable sensational superb terrific tremendous wondrous'.split(' ');
         const noun = 'adventure cruise expedition hiking tour travel'.split(' ');
+        
         return `${adj.splice(tags.integer(0, adj.length - 1), 1).map(w => w[0].toUpperCase() + w.substr(1))[0]}
           ${noun.splice(tags.integer(0, noun.length - 1), 1)[0]}
           in ${adj.splice(tags.integer(0, adj.length - 1), 1)[0]} ${this.country.name}`.replace(/\s+/g, ' ');
       },
+
       days(tags){
         return tags.integer(2, 14);
       },
+
       cost(tags){
         const base = 1000 * this.days;
         return tags.floating(base, base*10, 2, '$0,0.00');
       },
+
       image(tags){
         return `https://loremflickr.com/400/200/landscape,${encodeURIComponent(this.country.name.replace(/[,(].*$/, ''))}/all?lock=${tags.index()+1}`;
       },
+
       address(tags) {
         return `${tags.integer(100, 999)} ${tags.street()}, ${tags.city()}, ${tags.integer(100, 10000)}, ${this.country.name}`;
       },
+
       tags(tags){
         const options = 'all-inclusive child-friendly beach spa pool skiing sightseeing mountains'.split(' ');
         const out = [];
@@ -304,9 +311,11 @@ use the code below at: https://next.json-generator.com
         }
         return out;
       },
+
       intro(tags) {
         return `${tags.lorem(tags.integer(2, 3), 'sentences')}`;
       },
+      
       description(tags) {
         return `<p>${tags.lorem(tags.integer(3, 5), 'paragraphs')}</p>`.replace(/\n\n/g, '</p><p>');
       },

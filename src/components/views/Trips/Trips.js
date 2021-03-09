@@ -11,10 +11,12 @@ import TripListOptions from '../../features/TripListOptions/TripListOptionsConta
 const Trips = ({trips}) => (
   <Section>
     <Grid>
+
       <Row>
         <Col xs={12}>
           <PageTitle text='All trips' />
           <TripListOptions />
+
           <Row>
             {trips.length ? trips.map(trip => (
               <TripSummary key={trip.id} {...trip} />
@@ -22,8 +24,10 @@ const Trips = ({trips}) => (
               <p>Sorry, no results found. Try adjusting the filters.</p>
             )}
           </Row>
+          
         </Col>
       </Row>
+
     </Grid>
   </Section>
 );

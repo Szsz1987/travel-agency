@@ -16,17 +16,22 @@ import {Grid, Row, Col} from 'react-flexbox-grid';
 
 const Trip = ({error, name, image, cost, days, description, country, intro}) => {
   if(error) return <NotFound />;
+
   else return (
     <Section>
+
       <Grid>
         <PageTitle text={name} />
       </Grid>
+
       <DetailsBox>
         <DetailsImage>
           <SideImage source={image} />
         </DetailsImage>
+
         <Grid>
           <Row>
+
             <Col md={12} lg={4}>
               <div className={styles.intro}>
                 {HTMLParser(intro)}
@@ -36,9 +41,11 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
                 <ListItem title={`<strong>Price:</strong> from ${cost}`} icon='money-bill-wave' />
               </List>
             </Col>
+
           </Row>
         </Grid>
       </DetailsBox>
+
       <Grid>
         <Row>
           <Col xs={12}>
@@ -47,13 +54,16 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
           </Col>
         </Row>
       </Grid>
+
       <Grid>
         <PageTitle text={`About ${country.name}`} />
       </Grid>
+
       <DetailsBox>
         <DetailsImage>
           <SideImage source={country.flag} />
         </DetailsImage>
+        
         <Grid>
           <Row>
             <Col md={12} lg={4}>
