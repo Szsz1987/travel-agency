@@ -45,6 +45,7 @@ export const getFilteredTrips = ({trips, filters}) => {
       prices.push(parseInt(trip.cost));
     }
   }
+  //const sorted = output.sort((a,b) => (parseInt(a.cost.slice(1)) > parseInt(b.cost.slice(1))) ? 1 : -1);
   return output;
 };
 

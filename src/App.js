@@ -11,7 +11,6 @@ import Trips from './components/views/Trips/TripsContainer';
 // TODO - import other views
 import Countries from './components/views/Countries/CountriesContainer';
 import Regions from './components/views/Regions/RegionsContainer';
-
 import Info from './components/views/Info/Info';
 // import NotFound from './components/views/NotFound/NotFound';
 
