@@ -1,11 +1,5 @@
 import countries from '../data/countries.json';
-
-// funkcja parseTrips.js wykorzystujemy w komponencie App.
-// Przyjmuje ona listę wszystkich wycieczek, a szczegółowe 
-// informacje o krajach pobiera z pliku countries.json, ale w 
-// stanie nie są zapisywane dane wszystkich krajów – 
-// tworzy zestawienie wyłącznie tych krajów, regionów i subregionów,
-// do których oferujemy wycieczki.
+import pricing from '../data/pricing.json';
 
 const parseTrips = (trips, setStates) => {
   const newState = {
@@ -13,6 +7,11 @@ const parseTrips = (trips, setStates) => {
     regions: {},
     subregions: {},
     tags: {},
+    order: {
+      trip: null,
+      email: '',
+      options: {},
+    },
   };
 
   for(let trip of trips){
@@ -60,6 +59,18 @@ const parseTrips = (trips, setStates) => {
       };
     } else if(newState.subregions[country.subregion].countries.indexOf(country.alpha3Code) == -1) {
       newState.subregions[country.subregion].countries.push(country.alpha3Code);
+    }
+  }
+
+  for(let option of pricing){
+    if(typeof(option.defaultValue) != 'undefined'){
+      newState.order.options[option.id] = option.defaultValue;
+    } else if(typeof(option.limits) != 'undefined' && typeof(option.limits.min) != 'undefined'){
+      newState.order.options[option.id] = option.limits.min;
+    } else if(option.type == 'checkboxes'){
+      newState.order.options[option.id] = [];
+    } else {
+      newState.order.options[option.id] = '';
     }
   }
 
