@@ -1,6 +1,13 @@
 import countries from '../data/countries.json';
 import pricing from '../data/pricing.json';
 
+// funkcja parseTrips.js wykorzystujemy w komponencie App.
+// Przyjmuje ona listę wszystkich wycieczek, a szczegółowe 
+// informacje o krajach pobiera z pliku countries.json, ale w 
+// stanie nie są zapisywane dane wszystkich krajów – 
+// tworzy zestawienie wyłącznie tych krajów, regionów i subregionów,
+// do których oferujemy wycieczki.
+
 const parseTrips = (trips, setStates) => {
   const newState = {
     countries: {},
