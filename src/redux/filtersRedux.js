@@ -6,7 +6,7 @@ export const getAllFilters = ({filters}) => filters;
 
 // action name creator
 const reducerName = 'filters';
-const createActionName = name => `app/${reducerName}/${name}`;
+const createActionName = name => `  app/  ${reducerName}  /  ${name}  `;
 
 // action types
 export const CHANGE_PHRASE = createActionName('CHANGE_PHRASE');
