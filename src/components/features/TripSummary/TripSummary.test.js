@@ -2,12 +2,15 @@ import React from 'react';
 import {shallow} from 'enzyme';
 import TripSummary from './TripSummary';
 
-describe('Component TripSummary', () => {
-  it('it should render correct link', () => {
+describe('Component TripSummary', () => { // funkcja describe służy do zgrupowania kilku testów
+  it('it should render correct link', () => { // Drugim argumentem, podobnie jak w describe, jest funkcja strzałkowa, zawierająca wyrażenia testowe.
     const expectedLink = '/trip/abc';
-    const component = shallow(<TripSummary id='abc' image='image.jpg' tags={[]} />);
+    const component = shallow(<TripSummary id='abc' image='image.jpg' tags={[]} />); // W stałej component zapisujemy wynik funkcji shallow, która renderuje dla nas ten komponent,
+    // funkcja shallow renderuje tylko komponent, który jej przekazujemy, bez renderowania komponentów zawartych w nim
+    // Gdybyśmy potrzebowali wyrenderować wszystkie komponenty zawarte w testowanym komponencie, możemy użyć funkcji mount zamiast shallow 
     const renderedLink = component.find('.link').prop('to');
-    expect(renderedLink).toEqual(expectedLink);
+    // wyrażenie, które znajduje element z klasą link i sprawdza jego props to. 
+    expect(renderedLink).toEqual(expectedLink); // funkcja expect pozwala na sprawdzenie, czy otrzymany wynik (czyli wyrenderowany komponent) jest prawdziwy
   });
 
   it('it img should have correct src and alt', () => {

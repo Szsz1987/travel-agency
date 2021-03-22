@@ -29,7 +29,7 @@ describe('Component Hero', () => {
     const renderedTitle = component.find('.title').text();
     expect(renderedTitle).toEqual(expectedTitle);
     expect(component.find('.image').prop('src')).toEqual(expectedImage);
-  });  
+  });  // bezpośrednio w funkcji expect wpisaliśmy wyrażenie, które znajduje element z klasą image i sprawdza jego props src. 
 
   it('renders correct classNames', () => {
     const mockVariants = 'small dummy';
