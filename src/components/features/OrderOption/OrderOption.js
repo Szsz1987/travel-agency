@@ -8,7 +8,7 @@ import OrderOptionIcons from './OrderOptionIcons';
 import OrderOptionText from './OrderOptionText';
 import OrderOptionDate from './OrderOptionDate';
 
-const optionTypes = {
+export const optionTypes = {
   dropdown: OrderOptionDropdown,
   icons: OrderOptionIcons,
   checkboxes: OrderOptionCheckboxes,
@@ -27,6 +27,7 @@ const OrderOption = ({id, setOrderOption, name, type, ...otherProps}) => {
         <h3 className={styles.title}>{name}</h3>
         <OptionComponent
           setOptionValue={value => setOrderOption({[id] : value})}
+          // Jest to funkcja, która ma otrzymywać obiekt w formacie {idOpcji: wartośćOpcji}. 
           {...otherProps} name={name}
         />
       </div>
