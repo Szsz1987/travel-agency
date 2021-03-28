@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HTMLParser from 'react-html-parser';
-
 import NotFound from '../NotFound/NotFound';
 import Section from '../../layout/Section/Section';
 import PageTitle from '../../common/PageTitle/PageTitle';
@@ -10,12 +9,11 @@ import DetailsBox from '../../common/DetailsBox/DetailsBox';
 import DetailsImage from '../../common/DetailsImage/DetailsImage';
 import List from '../../common/List/List';
 import ListItem from '../../common/ListItem/ListItem';
-
 import styles from './Trip.scss';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import OrderForm from '../../features/OrderForm/OrderFormContainer';
 
-const Trip = ({error, name, image, cost, days, description, country, intro}) => {
+const Trip = ({error, name, image, cost, days, description, country, id, intro}) => {
   if(error) return <NotFound />;
 
   else return (
@@ -82,7 +80,7 @@ const Trip = ({error, name, image, cost, days, description, country, intro}) => 
         <Row>
           <Col xs={12}>
             <PageTitle text='Trip options' />
-            <OrderForm tripCost={cost}     />
+            <OrderForm tripId={id} countryCode = {country.alpha3Code} tripName={name} tripCost={cost} tripDuration={days} />
           </Col>
         </Row>
       </Grid>
@@ -98,6 +96,7 @@ Trip.propTypes = {
   days: PropTypes.number,
   description: PropTypes.string,
   country: PropTypes.object,
+  id: PropTypes.string,
 };
 
 export default Trip;
